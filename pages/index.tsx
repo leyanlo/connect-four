@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import Head from 'next/head';
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <div
       className={css`
