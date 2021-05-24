@@ -6,6 +6,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     <>
       <Global
         styles={css`
+          html {
+            box-sizing: border-box;
+          }
+
           html,
           body {
             padding: 0;
@@ -20,8 +24,15 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             text-decoration: none;
           }
 
-          * {
-            box-sizing: border-box;
+          *,
+          *:before,
+          *:after {
+            box-sizing: inherit;
+          }
+
+          /* Focusing with a mouse, touch, or stylus will not show an outline. */
+          :focus:not(:focus-visible) {
+            outline: none;
           }
         `}
       />
