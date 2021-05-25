@@ -7,6 +7,13 @@ import Head from 'next/head';
 import Image from 'next/image';
 import * as React from 'react';
 
+const COLORS = {
+  red: '#cd1d30',
+  yellow: '#fbc809',
+  blue: '#1d63f2',
+  gray: '#c2c2c2',
+};
+
 const VisuallyHidden = styled.div`
   &:not(:focus):not(:active) {
     clip: rect(0 0 0 0);
@@ -117,8 +124,8 @@ function PlayerName({ player }: { player: Player }) {
     <b
       css={css`
         color: ${{
-          [Player.Red]: '#CD1D30',
-          [Player.Yellow]: '#FBC809',
+          [Player.Red]: COLORS.red,
+          [Player.Yellow]: COLORS.yellow,
         }[player]};
       `}
     >
@@ -195,7 +202,7 @@ export default function Home(): JSX.Element {
               css={css`
                 border: none;
                 padding: 0;
-                background: #1d63f2;
+                background: ${COLORS.blue};
                 width: 50px;
                 height: 300px;
                 display: flex;
@@ -216,11 +223,12 @@ export default function Home(): JSX.Element {
                     height: 36px;
                     margin: auto;
                     border-radius: 50%;
-                    background: white;
+                    background: ${{
+                      [Player.Red]: 'red',
+                      [Player.Yellow]: 'yellow',
+                    }[state.board[colIdx][rowIdx]] || 'white'};
                   `}
                 >
-                  {/* TODO: show game piece */}
-                  {Player[state.board[colIdx][rowIdx]]}
                   <VisuallyHidden>
                     {Player[state.board[colIdx][rowIdx]]}
                   </VisuallyHidden>
@@ -237,7 +245,7 @@ export default function Home(): JSX.Element {
           bottom: 0;
           width: 100%;
           padding: 20px;
-          border-top: 1px solid #eaeaea;
+          border-top: 1px solid ${COLORS.gray};
           text-align: center;
         `}
       >
