@@ -117,9 +117,9 @@ export default function Home(): JSX.Element {
     <>
       <Head>
         <title>Connect Four</title>
-        <meta name="description" content="Connect Four game" />
+        <meta content="Connect Four game" name="description" />
         {/* TODO: update favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        <link href="/favicon.ico" rel="icon" />
       </Head>
 
       <div
@@ -196,10 +196,10 @@ export default function Home(): JSX.Element {
         >
           <a
             href="https://github.com/leyanlo/connect-four"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
-            <Image src="/github.png" alt="GitHub Logo" width={40} height={40} />
+            <Image alt="GitHub Logo" height={40} src="/github.png" width={40} />
           </a>
         </footer>
       </div>

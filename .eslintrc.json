@@ -18,6 +18,12 @@
   },
   "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
   "rules": {
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "reservedFirst": true
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error"
