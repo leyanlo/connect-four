@@ -137,94 +137,110 @@ export default function Home(): JSX.Element {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <div
+      <main
         className={css`
-          min-height: 100vh;
-          display: grid;
-          place-items: center;
+          padding: 40px 20px;
+          width: 320px;
+          margin: auto;
         `}
       >
-        <main
+        <h1>Connect Four</h1>
+        <p
           className={css`
-            padding: 20px;
+            display: flex;
+            justify-content: space-between;
           `}
         >
-          <h1>Connect Four</h1>
-          <div
-            className={css`
-              display: flex;
-              justify-content: space-between;
-            `}
+          <div>
+            {state.isFull ? (
+              'Game over!'
+            ) : state.winner !== null ? (
+              <>
+                <PlayerName player={state.winner} /> won!
+              </>
+            ) : (
+              <>
+                <PlayerName player={state.turn} />
+                ’s turn
+              </>
+            )}
+          </div>
+          <button
+            onClick={() =>
+              dispatch({
+                type: ActionType.Reset,
+              })
+            }
           >
-            <div>
-              {/* TODO: style player */}
-              {state.isFull ? (
-                'Game over!'
-              ) : state.winner !== null ? (
-                <>
-                  <PlayerName player={state.winner} /> won!
-                </>
-              ) : (
-                <>
-                  <PlayerName player={state.turn} />
-                  ’s turn
-                </>
-              )}
-            </div>
+            New Game
+          </button>
+        </p>
+        <div
+          className={css`
+            display: flex;
+            padding-top: 40px;
+          `}
+        >
+          {state.board.map((col, colIdx) => (
             <button
+              key={colIdx}
+              className={css`
+                border: none;
+                padding: 0;
+                background: #1d63f2;
+                width: 40px;
+                height: 240px;
+                display: flex;
+                flex-direction: column-reverse;
+              `}
               onClick={() =>
                 dispatch({
-                  type: ActionType.Reset,
+                  type: ActionType.Move,
+                  colIdx,
                 })
               }
             >
-              New Game
-            </button>
-          </div>
-          <div>
-            {state.board.map((col, colIdx) => (
-              <button
-                key={colIdx}
-                onClick={() =>
-                  dispatch({
-                    type: ActionType.Move,
-                    colIdx,
-                  })
-                }
-              >
-                {[...Array(6).keys()].map((rowIdx) => (
-                  <div key={rowIdx}>
-                    {/* TODO: show game piece */}
+              {[...Array(6).keys()].map((rowIdx) => (
+                <div
+                  key={rowIdx}
+                  className={css`
+                    width: 28px;
+                    height: 28px;
+                    margin: auto;
+                    border-radius: 50%;
+                    background: white;
+                  `}
+                >
+                  {/* TODO: show game piece */}
+                  {Player[state.board[colIdx][rowIdx]]}
+                  <VisuallyHidden>
                     {Player[state.board[colIdx][rowIdx]]}
-                    <VisuallyHidden>
-                      {Player[state.board[colIdx][rowIdx]]}
-                    </VisuallyHidden>
-                  </div>
-                ))}
-              </button>
-            ))}
-          </div>
-        </main>
+                  </VisuallyHidden>
+                </div>
+              ))}
+            </button>
+          ))}
+        </div>
+      </main>
 
-        <footer
-          className={css`
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 20px;
-            border-top: 1px solid #eaeaea;
-            text-align: center;
-          `}
+      <footer
+        className={css`
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          padding: 20px;
+          border-top: 1px solid #eaeaea;
+          text-align: center;
+        `}
+      >
+        <a
+          href="https://github.com/leyanlo/connect-four"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <a
-            href="https://github.com/leyanlo/connect-four"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Image alt="GitHub Logo" height={40} src="/github.png" width={40} />
-          </a>
-        </footer>
-      </div>
+          <Image alt="GitHub Logo" height={40} src="/github.png" width={40} />
+        </a>
+      </footer>
     </>
   );
 }
