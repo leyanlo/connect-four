@@ -209,6 +209,14 @@ export default function Home(): JSX.Element {
                 flex-direction: column-reverse;
                 position: relative;
 
+                &:first-child {
+                  border-radius: 10px 0 0 10px;
+                }
+
+                &:last-child {
+                  border-radius: 0 10px 10px 0;
+                }
+
                 &:not([disabled]):hover,
                 &:not([disabled]):focus:focus-visible {
                   outline: none;
