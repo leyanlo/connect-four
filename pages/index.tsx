@@ -37,12 +37,14 @@ type State = {
   board: Player[][];
   turn: Player;
   winner: Player | null;
+  isFull: boolean;
 };
 
 const initialState: State = {
   board: [...Array(7)].map(() => []),
   turn: Player.Red,
   winner: null,
+  isFull: false,
 };
 
 enum ActionType {
@@ -98,6 +100,7 @@ function reducer(state: State, action: Action) {
       nextState.board[action.colIdx].push(state.turn);
       nextState.turn = (state.turn + 1) % 2;
       nextState.winner = getWinner(nextState.board);
+      nextState.isFull = nextState.board.flat().length === 7 * 6;
       break;
 
     case ActionType.Reset:
@@ -140,7 +143,9 @@ export default function Home(): JSX.Element {
           >
             <div>
               {/* TODO: style player */}
-              {state.winner !== null
+              {state.isFull
+                ? 'Game over!'
+                : state.winner !== null
                 ? `${Player[state.winner]} won!`
                 : `${Player[state.turn]}’s turn`}
             </div>
