@@ -165,7 +165,7 @@ export default function Home(): JSX.Element {
             justify-content: space-between;
           `}
         >
-          <div>
+          <span>
             {state.isFull ? (
               'Game over!'
             ) : state.winner !== null ? (
@@ -178,7 +178,7 @@ export default function Home(): JSX.Element {
                 ’s turn
               </>
             )}
-          </div>
+          </span>
           <button
             onClick={() =>
               dispatch({
