@@ -170,7 +170,7 @@ export default function Home(): JSX.Element {
               'Game over!'
             ) : state.winner !== null ? (
               <>
-                <PlayerName player={state.winner} /> won!
+                <PlayerName player={state.winner} /> wins!
               </>
             ) : (
               <>
