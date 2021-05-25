@@ -1,4 +1,6 @@
-import { css } from '@emotion/css';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import clone from 'just-clone';
 import Head from 'next/head';
@@ -113,7 +115,7 @@ function reducer(state: State, action: Action) {
 function PlayerName({ player }: { player: Player }) {
   return (
     <b
-      className={css`
+      css={css`
         color: ${{
           [Player.Red]: '#CD1D30',
           [Player.Yellow]: '#FBC809',
@@ -138,21 +140,21 @@ export default function Home(): JSX.Element {
       </Head>
 
       <main
-        className={css`
+        css={css`
           padding: 40px 20px;
           width: 320px;
           margin: auto;
         `}
       >
         <h1
-          className={css`
+          css={css`
             text-align: center;
           `}
         >
           Connect Four
         </h1>
         <p
-          className={css`
+          css={css`
             display: flex;
             justify-content: space-between;
           `}
@@ -181,8 +183,8 @@ export default function Home(): JSX.Element {
             New Game
           </button>
         </p>
-        <div
-          className={css`
+        <section
+          css={css`
             display: flex;
             padding-top: 40px;
           `}
@@ -190,7 +192,7 @@ export default function Home(): JSX.Element {
           {state.board.map((col, colIdx) => (
             <button
               key={colIdx}
-              className={css`
+              css={css`
                 border: none;
                 padding: 0;
                 background: #1d63f2;
@@ -209,7 +211,7 @@ export default function Home(): JSX.Element {
               {[...Array(6).keys()].map((rowIdx) => (
                 <div
                   key={rowIdx}
-                  className={css`
+                  css={css`
                     width: 28px;
                     height: 28px;
                     margin: auto;
@@ -226,11 +228,11 @@ export default function Home(): JSX.Element {
               ))}
             </button>
           ))}
-        </div>
+        </section>
       </main>
 
       <footer
-        className={css`
+        css={css`
           position: fixed;
           bottom: 0;
           width: 100%;
