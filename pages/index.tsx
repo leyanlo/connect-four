@@ -141,8 +141,8 @@ export default function Home(): JSX.Element {
 
       <main
         css={css`
-          padding: 40px 20px;
-          width: 320px;
+          padding: 40px 0;
+          width: 350px;
           margin: auto;
         `}
       >
@@ -186,7 +186,7 @@ export default function Home(): JSX.Element {
         <section
           css={css`
             display: flex;
-            padding-top: 40px;
+            padding-top: 50px;
           `}
         >
           {state.board.map((col, colIdx) => (
@@ -196,8 +196,8 @@ export default function Home(): JSX.Element {
                 border: none;
                 padding: 0;
                 background: #1d63f2;
-                width: 40px;
-                height: 240px;
+                width: 50px;
+                height: 300px;
                 display: flex;
                 flex-direction: column-reverse;
               `}
@@ -212,8 +212,8 @@ export default function Home(): JSX.Element {
                 <div
                   key={rowIdx}
                   css={css`
-                    width: 28px;
-                    height: 28px;
+                    width: 36px;
+                    height: 36px;
                     margin: auto;
                     border-radius: 50%;
                     background: white;
