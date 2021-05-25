@@ -110,6 +110,21 @@ function reducer(state: State, action: Action) {
   return nextState;
 }
 
+function PlayerName({ player }: { player: Player }) {
+  return (
+    <b
+      className={css`
+        color: ${{
+          [Player.Red]: '#CD1D30',
+          [Player.Yellow]: '#FBC809',
+        }[player]};
+      `}
+    >
+      {Player[player]}
+    </b>
+  );
+}
+
 export default function Home(): JSX.Element {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
@@ -143,11 +158,18 @@ export default function Home(): JSX.Element {
           >
             <div>
               {/* TODO: style player */}
-              {state.isFull
-                ? 'Game over!'
-                : state.winner !== null
-                ? `${Player[state.winner]} won!`
-                : `${Player[state.turn]}’s turn`}
+              {state.isFull ? (
+                'Game over!'
+              ) : state.winner !== null ? (
+                <>
+                  <PlayerName player={state.winner} /> won!
+                </>
+              ) : (
+                <>
+                  <PlayerName player={state.turn} />
+                  ’s turn
+                </>
+              )}
             </div>
             <button
               onClick={() =>
