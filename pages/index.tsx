@@ -3,7 +3,6 @@
 import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import clone from 'just-clone';
-import Head from 'next/head';
 import Image from 'next/image';
 import * as React from 'react';
 
@@ -139,12 +138,6 @@ export default function Home(): JSX.Element {
 
   return (
     <>
-      <Head>
-        <title>Connect Four</title>
-        <meta content="Connect Four game" name="description" />
-        <link href="/favicon.ico" rel="icon" />
-      </Head>
-
       <main
         css={css`
           padding: 40px 0;
@@ -244,6 +237,7 @@ export default function Home(): JSX.Element {
                 })
               }
             >
+              <VisuallyHidden>Column {colIdx + 1}</VisuallyHidden>
               {[...Array(6).keys()].map((rowIdx) => (
                 <div
                   key={rowIdx}
