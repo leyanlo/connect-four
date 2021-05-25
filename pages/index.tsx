@@ -189,9 +189,8 @@ export default function Home(): JSX.Element {
             text-align: center;
           `}
         >
-          {/* TODO: link to repo */}
           <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://github.com/leyanlo/connect-four"
             target="_blank"
             rel="noopener noreferrer"
           >
