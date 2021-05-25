@@ -207,7 +207,29 @@ export default function Home(): JSX.Element {
                 height: 300px;
                 display: flex;
                 flex-direction: column-reverse;
+                position: relative;
+
+                &:not([disabled]):hover,
+                &:not([disabled]):focus:focus-visible {
+                  outline: none;
+                  cursor: pointer;
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    top: -45px;
+                    left: 5px;
+                    background: ${{
+                      [Player.Red]: 'red',
+                      [Player.Yellow]: 'yellow',
+                    }[state.turn] || 'white'};
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    border: 1px solid black;
+                  }
+                }
               `}
+              disabled={state.winner !== null}
               onClick={() =>
                 dispatch({
                   type: ActionType.Move,
@@ -223,6 +245,7 @@ export default function Home(): JSX.Element {
                     height: 36px;
                     margin: auto;
                     border-radius: 50%;
+                    border: 1px solid black;
                     background: ${{
                       [Player.Red]: 'red',
                       [Player.Yellow]: 'yellow',
