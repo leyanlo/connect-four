@@ -208,11 +208,11 @@ export default function Home(): JSX.Element {
                 flex-direction: column-reverse;
                 position: relative;
 
-                &:first-child {
+                &:first-of-type {
                   border-radius: 10px 0 0 10px;
                 }
 
-                &:last-child {
+                &:last-of-type {
                   border-radius: 0 10px 10px 0;
                 }
 
