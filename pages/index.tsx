@@ -144,7 +144,13 @@ export default function Home(): JSX.Element {
           margin: auto;
         `}
       >
-        <h1>Connect Four</h1>
+        <h1
+          className={css`
+            text-align: center;
+          `}
+        >
+          Connect Four
+        </h1>
         <p
           className={css`
             display: flex;
