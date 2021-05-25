@@ -142,7 +142,6 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Connect Four</title>
         <meta content="Connect Four game" name="description" />
-        {/* TODO: update favicon */}
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
