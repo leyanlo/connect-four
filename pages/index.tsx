@@ -236,7 +236,7 @@ export default function Home(): JSX.Element {
                   }
                 }
               `}
-              disabled={state.winner !== null}
+              disabled={state.winner !== null || state.isFull}
               onClick={() =>
                 dispatch({
                   type: ActionType.Move,
