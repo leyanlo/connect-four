@@ -226,8 +226,8 @@ export default function Home(): JSX.Element {
                     top: -45px;
                     left: 5px;
                     background: ${{
-                      [Player.Red]: 'red',
-                      [Player.Yellow]: 'yellow',
+                      [Player.Red]: COLORS.red,
+                      [Player.Yellow]: COLORS.yellow,
                     }[state.turn] || 'white'};
                     width: 40px;
                     height: 40px;
@@ -254,8 +254,8 @@ export default function Home(): JSX.Element {
                     border-radius: 50%;
                     border: 1px solid black;
                     background: ${{
-                      [Player.Red]: 'red',
-                      [Player.Yellow]: 'yellow',
+                      [Player.Red]: COLORS.red,
+                      [Player.Yellow]: COLORS.yellow,
                     }[state.board[colIdx][rowIdx]] || 'white'};
                   `}
                 >
