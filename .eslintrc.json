@@ -16,7 +16,11 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "simple-import-sort"
+  ],
   "rules": {
     "react/jsx-sort-props": [
       "error",
@@ -26,6 +30,19 @@
     ],
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/exports": "error",
+    "react/no-unknown-property": [
+      "error",
+      {
+        "ignore": [
+          "css"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
